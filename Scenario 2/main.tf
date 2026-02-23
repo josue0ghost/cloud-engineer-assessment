@@ -25,8 +25,8 @@ resource "aws_appmesh_mesh" "cea_app_mesh" {
 # Virtual Node for API Customer Service
 # The micro-service will only accept traffic authenticated by valid certificates inside the App Mesh
 # PREREQUISITES:
-# 1. cer-manager must be installed in EKS
-# 2. Create a ClusterIssuer in Kubernetes that references the ACM Private CA ARN using var.acm_pca_arn
+# 1. cert-manager must be installed in EKS
+# 2. Create a ClusterIssuer in Kubernetes that references the ACM Private CA ARN
 # 3. Create a Certificate resource in Kubernetes that references the ClusterIssuer and includes the service
 # 4. Mount the generated secret inside the Pod at /certs
 resource "aws_appmesh_virtual_node" "api_customer_node" {
