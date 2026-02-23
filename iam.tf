@@ -29,6 +29,10 @@ resource "aws_iam_policy" "s3_access_policy" {
 resource "aws_iam_role" "irsa_role" {
   name = "${aws_eks_cluster.cea_eks_cluster.name}-irsa-s3-role"
 
+  # Any pod using serviceAccountName: s3-access-sa in the specified namespace can assume this role
+  # and will get temporal credentials by STS AssumeRoleWithWebIdentity 
+  # Role is restricted to only allow access to the specific S3 bucket defined in the policy
+  # Role is restricted to a specific service account and namespace to ensure least privilege access
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
