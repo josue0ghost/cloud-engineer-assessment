@@ -1,4 +1,3 @@
-
 # EKS Auto Mode
 resource "aws_eks_cluster" "cea_eks_cluster" {
   name = "cea-eks-cluster"

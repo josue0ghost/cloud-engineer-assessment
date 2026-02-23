@@ -1,5 +1,3 @@
-# Scenario 1
-
 # OIDC Provider ARN
 output "oidc_provider_arn" {
   value = data.aws_iam_openid_connect_provider.oidc.arn
