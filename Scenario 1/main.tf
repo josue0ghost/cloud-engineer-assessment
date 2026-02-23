@@ -49,6 +49,11 @@ resource "aws_eks_cluster" "cea_eks_cluster" {
     aws_iam_role_policy_attachment.cluster_AmazonEKSLoadBalancingPolicy,
     aws_iam_role_policy_attachment.cluster_AmazonEKSNetworkingPolicy,
   ]
+
+  tags = {
+    Name                = "cea-eks-cluster"
+    Usage               = var.project_name
+  }
 }
 
 # Extract OIDC issuer URL and format it for IAM Role trust relationship
